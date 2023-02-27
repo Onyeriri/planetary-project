@@ -1,5 +1,24 @@
 {
   "dependencies": {
     "csv-parse": "^5.3.5"
-  }
+  },
+  "name": "planetary-project",
+  "description": "This project study space travel in various other planet in search of life outside our solar system.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "npm run watch --prefix server",
+    "client": "npm start --prefix client",
+    "watch": "concurrently \"npm run server\" \"npm run client\"",
+    "server-install": "npm install --prefix server",
+    "client-install": "npm install --prefix client",
+    "install": "concurrently \"npm run server-install\" \"npm install client-install\""
+  },
+  "keywords": [],
+  "author": "Chinonso",
+  "license": "ISC"
 }
