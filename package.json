@@ -16,7 +16,8 @@
     "watch": "concurrently \"npm run server\" \"npm run client\"",
     "server-install": "npm install --prefix server",
     "client-install": "npm install --prefix client",
-    "install": "concurrently \"npm run server-install\" \"npm install client-install\""
+    "install": "concurrently \"npm run server-install\" \"npm install client-install\"",
+    "deploy": "npm run build --prefix client && npm start --prefix server"
   },
   "keywords": [],
   "author": "Chinonso",
