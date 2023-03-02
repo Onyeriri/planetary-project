@@ -13,7 +13,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "npm run watch --prefix server",
     "client": "npm start --prefix client",
-    "watch": "concurrently \"npm run server\" \"npm run client\"",
+    "watch": "npm run client & npm run server",
     "server-install": "npm install --prefix server",
     "client-install": "npm install --prefix client",
     "install": "concurrently \"npm run server-install\" \"npm install client-install\"",
