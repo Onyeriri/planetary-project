@@ -11,18 +11,18 @@ function httpAddNewLaunch(req, res) {
     !launch.mission ||
     !launch.rocket ||
     !launch.launchDate ||
-    !launch.destination
+    !launch.target
   ) {
     return res.status(400).json({
       Error: "Missing a required launch field",
     });
   }
 
-  if (isNaN(launch.launchDate)) {
-    return res.status(400).json({
-      Error: "Please enter a valid launch date",
-    });
-  }
+  // if (isNaN(launch.launchDate)) {
+  //   return res.status(400).json({
+  //     Error: "Please enter a valid launch date",
+  //   });
+  // }
 
   launch.launchDate = new Date(launch.launchDate);
 
