@@ -1,4 +1,5 @@
 const express = require("express");
+const cluster = require("cluster");
 
 const app = express();
 
@@ -11,12 +12,19 @@ function delay(duration) {
 }
 
 app.get("/", (req, res) => {
-  res.send("Performance test!!!");
+  res.send(`Performance test!!!...${process.pid}`);
 });
 
 app.get("/timer", (req, res) => {
   delay(9000);
-  res.send("Ding ding...");
+  res.send(`Ding ding... ${process.pid}`);
 });
 
-app.listen(9000);
+if (cluster.isMaster) {
+  console.log("Master server started...");
+  cluster.fork();
+  cluster.fork();
+} else {
+  console.log("Started worker server");
+  app.listen(3000);
+}
