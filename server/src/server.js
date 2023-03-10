@@ -3,7 +3,7 @@ const app = require("./app");
 const { loadPlanetsData } = require("./models/planets.model");
 const mongoose = require("mongoose");
 
-const MON_URL =
+const MONGO_URL =
   "mongodb+srv://Nasa-data:gLPg3PrWWbwr5Kuv@cluster0.joozu.mongodb.net/nasa?retryWrites=true&w=majority";
 
 const server = http.createServer(app);
@@ -19,7 +19,7 @@ mongoose.connection.on("error", (err) => {
 });
 
 async function startServer() {
-  await mongoose.connect(MON_URL);
+  await mongoose.connect(MONGO_URL);
   await loadPlanetsData();
 
   server.listen(PORT, () => {
