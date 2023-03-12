@@ -1,4 +1,6 @@
-const launches = new Map();
+const launches = require("./launches.mongo");
+
+// const launches = new Map();
 
 const launch = {
   flightNumber: 100,
@@ -11,7 +13,9 @@ const launch = {
   success: true,
 };
 
-launches.set(launch.flightNumber, launch);
+// launches.set(launch.flightNumber, launch);
+
+saveLaunch(launch);
 
 function existWithLaunchId(launch) {
   return launches.has(launch);
@@ -33,6 +37,18 @@ function addNewLaunch(launch) {
       success: true,
       customers: ["ZTM", "NASA"],
     })
+  );
+}
+
+async function saveLaunch(launch) {
+  await launches.updateOne(
+    {
+      flightNumber: launch.flightNumber,
+    },
+    launch,
+    {
+      upsert: true,
+    }
   );
 }
 
