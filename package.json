@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "csv-parse": "^5.3.5"
+    "csv-parse": "^5.3.5",
+    "dotenv": "^16.0.3"
   },
   "name": "planetary-project",
   "description": "This project study space travel in various other planet in search of life outside our solar system.",
