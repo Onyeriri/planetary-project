@@ -2,6 +2,9 @@ const http = require("http");
 const app = require("./app");
 const { loadPlanetsData } = require("./models/planets.model");
 const mongoose = require("mongoose");
+require("dotenv").config({
+  path: "C:/Users/ZBook/Desktop/app/planetary-project/.env",
+});
 
 const MONGO_URL =
   "mongodb+srv://Nasa-data:gLPg3PrWWbwr5Kuv@cluster0.joozu.mongodb.net/nasa?retryWrites=true&w=majority";
@@ -19,7 +22,7 @@ mongoose.connection.on("error", (err) => {
 });
 
 async function startServer() {
-  await mongoose.connect(MONGO_URL);
+  await mongoose.connect(process.env.MONGO_URL);
   await loadPlanetsData();
 
   server.listen(PORT, () => {
