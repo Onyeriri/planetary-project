@@ -6,9 +6,6 @@ require("dotenv").config({
   path: "C:/Users/ZBook/Desktop/app/planetary-project/.env",
 });
 
-// const MONGO_URL =
-//   "mongodb+srv://Nasa-data:gLPg3PrWWbwr5Kuv@cluster0.joozu.mongodb.net/nasa?retryWrites=true&w=majority";
-
 const server = http.createServer(app);
 
 const PORT = process.env.PORT || 8000;
